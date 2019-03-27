@@ -1,0 +1,96 @@
+<div class="row-1">
+  <mat-card class="mat-elevation-z6" [@slideRight]="isVisible ? 'slide' : 'disappear'" class="main">
+    <mat-card-header>
+      <img mat-card-avatar src="assets/img/profile.png" alt="Profile Picture">
+      <mat-card-title>Joe Kang</mat-card-title>
+      <mat-card-subtitle>Software Developer</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="description">
+        I am currently working at Hyland Software as a software developer.
+        My main focus in Hyland is using Angular to create components for other teams to incorporate into their websites.
+        This website is meant to practice and showcase my knowledge of Angular and programming in general.
+        Other than coding, I also like to play sports such as basketball, volleyball, and ping pong.
+        I also enjoy playing video games, board games, and card games.
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mat-elevation-z6" [@slideLeft]="isVisible ? 'slide' : 'disappear'" class="basic">
+    <mat-card-header>
+      <mat-card-title>Basic Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="basic-list">
+        <mat-list>
+          <mat-list-item *ngFor="let basic of basicDataSource">
+            <mat-icon matTooltip="{{basic.tooltip}}" matTooltipPosition="before" color="accent">{{basic.icon}}</mat-icon>
+            <p>{{basic.text}}</p>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <mat-card-header>
+          <mat-card-title>Favorite Things</mat-card-title>
+      </mat-card-header>
+      <div class="activity-list">
+        <div *ngFor="let fav of favoriteDataSource">
+          <a href="{{fav.link}}">
+            <mat-icon color="accent" matTooltip="{{fav.tooltip}}" class="fav-icons">{{fav.icon}}</mat-icon>
+          </a>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="row-2">
+  <mat-card class="mat-elevation-z6" [@slideUp]="isVisible ? 'slide' : 'disappear'" class="experience">
+    <mat-card-header>
+      <mat-card-title>Experience</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="experienceDataSource" class="mat-elevation-z5">
+        <ng-container matColumnDef="Company">
+          <th mat-header-cell *matHeaderCellDef> Company </th>
+          <td mat-cell *matCellDef="let experience"> {{experience.company}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Position">
+          <th mat-header-cell *matHeaderCellDef> Position </th>
+          <td mat-cell *matCellDef="let experience"> {{experience.position}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Timeframe">
+          <th mat-header-cell *matHeaderCellDef> Timeframe </th>
+          <td mat-cell *matCellDef="let experience"> {{experience.timeframe}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="experienceCol"></tr>
+        <tr mat-row *matRowDef="let row; columns: experienceCol;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mat-elevation-z6" [@slideUp]="isVisible ? 'slide' : 'disappear'" class="education">
+    <mat-card-header>
+      <mat-card-title>Education</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let school of educationDataSource">
+        <a href="{{school.link}}">
+          <mat-card  class="school">
+            <mat-card-header>
+                <img mat-card-avatar src='{{school.image}}' alt="">
+              <mat-card-title>{{school.school}}</mat-card-title>
+              <mat-card-subtitle>{{school.timeframe}}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+

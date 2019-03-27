@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Popup</mat-card-title>
+    <mat-card-subtitle>Snackbar, Dialog, and Tooltip</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field class="input">
+      <input matInput [(ngModel)]="messages" placeholder="message" #message>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput [(ngModel)]="actions" placeholder="button" #action>
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="openSnackBar(message.value, action.value)" matTooltip="Display SnackBar">SnackBar</button>
+    <mat-form-field class="name-input">
+      <input matInput [(ngModel)]="name" placeholder="What's your name?" #fname>
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="openDialog()" matTooltip="Display Dialog">Dialog</button>
+    <p *ngIf="animal">
+      You chose: <b>{{animal}}</b>
+    </p>
+  </mat-card-content>
+</mat-card>

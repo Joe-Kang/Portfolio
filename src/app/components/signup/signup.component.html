@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Sign Up</mat-card-title>
+    <mat-card-subtitle>Stepper</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-vertical-stepper linear #stepper>
+      <mat-step [stepControl]="nameFormGroup" state="name">
+        <form [formGroup]="nameFormGroup">
+          <ng-template matStepLabel>Name</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="First Name" formControlName="firstName" required>
+          </mat-form-field> <br>
+          <mat-form-field>
+            <input matInput placeholder="Last Name" formControlName="lastName" required>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperNext color="accent">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="emailFormGroup" state="email">
+        <form [formGroup]="emailFormGroup">
+          <ng-template matStepLabel>Email</ng-template>
+          <mat-form-field>
+            <input type="email" matInput placeholder="Email Address" formControlName="address" required>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperPrevious color="warn">Back</button>
+            <button mat-raised-button matStepperNext color="accent">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="passwordFormGroup" state="password">
+        <form [formGroup]="passwordFormGroup">
+          <ng-template matStepLabel>Password</ng-template>
+          <mat-form-field>
+            <input type="password" matInput placeholder="Password" formControlName="password" required>
+          </mat-form-field><br>
+          <mat-form-field>
+              <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword" required>
+            </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperPrevious color="warn">Back</button>
+          <button mat-raised-button (click)="stepper.reset()" color="accent">Sign Up</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <ng-template matStepperIcon="name">
+        <mat-icon>call_end</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="email">
+        <mat-icon>forum</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="password">
+        <mat-icon>forum</mat-icon>
+      </ng-template>
+    </mat-vertical-stepper>
+  </mat-card-content>
+</mat-card>
+
+

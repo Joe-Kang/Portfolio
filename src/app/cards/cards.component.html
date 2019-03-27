@@ -1,0 +1,19 @@
+<div>
+  <mat-card class="mat-elevation-z6">
+    <mat-card-header>
+      <mat-card-title>Playing Cards</mat-card-title>
+      <mat-card-subtitle>Display 52 Playing Cards</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-button (click)="cardService.newDeck()" color="accent">New Deck</button>
+      <button mat-button (click)="cardService.shuffleDeck()" color="accent">Shuffle Deck</button>
+      <button mat-button (click)="cardService.drawCard()" color="accent">Draw a Card</button>
+      <button mat-button (click)="cardService.addToHand('Player1', ['3S'])" color="accent">Add to Hand</button>
+      <button mat-button (click)="cardService.showHand('Player1')" color="accent">Show hand</button>
+      <div>
+          <img src="https://deckofcardsapi.com/static/img/AS.png" alt="Card Drawn" >
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

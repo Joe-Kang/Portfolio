@@ -1,0 +1,17 @@
+.components {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.component {
+  height: 100%;
+  margin: 20px;
+  transition: 0.25s;
+}
+
+.component:hover, .component:focus {
+  box-shadow: 7px 7px 7px 7px #ccc;
+  transform: translateY(-0.25em);
+}

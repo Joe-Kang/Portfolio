@@ -1,0 +1,80 @@
+.row-1, .row-2 {
+  flex-flow: row wrap;
+}
+
+.row-1, .row-2, {
+  display: flex;
+  justify-content: center;
+  margin: -10px 20px 20px 20px;
+  align-items: center;
+}
+
+.basic, .main, .experience, .education {
+  height: 100%;
+  margin: 10px;
+}
+
+.basic {
+  width: 260px;
+}
+
+.basic-list {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.activity-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.fav-icons {
+  transition: 0.25s;
+}
+
+.fav-icons:hover {
+  box-shadow: 3px 3px 3px 3px rgb(133, 131, 131);
+  transform: translateY(-0.25em);
+}
+
+.main {
+  width: 500px;
+}
+
+.description {
+  height: 171px;
+  overflow: auto;
+}
+
+.experience {
+  width: 650px;
+}
+
+p {
+  margin-left: 10px;
+}
+
+a, u {
+  text-decoration: none;
+}
+
+table {
+  width: 100%;
+}
+
+.school {
+  margin: 10px;
+  height: 100%;
+  transition: 0.25s;
+}
+
+.school:hover {
+  box-shadow: 3px 3px 3px 3px rgb(133, 131, 131);
+  transform: translateY(-0.25em);
+}
+
+.education {
+  width: 455px;
+}

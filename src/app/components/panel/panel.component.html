@@ -1,0 +1,93 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>Expansion Panel</mat-card-title>
+      <mat-card-subtitle>Panel, Form, Autocomplete, and Datepicker</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon color="accent">account_circle</mat-icon>
+            <span>Basic Information</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" placeholder="Age">
+        </mat-form-field>
+
+        <mat-action-row>
+          <button mat-raised-button color="accent" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon color="accent">map</mat-icon>
+            <span>Destination</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="City" [matAutocomplete]="autoCity" [formControl]="cityCtrl" (blur)="stateComplete(cityCtrl.value)">
+          <mat-autocomplete autoActiveFirstOption #autoCity="matAutocomplete">
+            <mat-option *ngFor="let location of filteredCities | async" [value]="location.city">
+              <span>{{location.city}}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="State" [matAutocomplete]="autoState" [formControl]="stateCtrl">
+          <mat-autocomplete autoActiveFirstOption #autoState="matAutocomplete">
+            <mat-option *ngFor="let location of filteredStates | async" [value]="location">
+              <span>{{location}}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-action-row>
+          <button mat-raised-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-raised-button color="accent" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon color="accent">date_range</mat-icon>
+            <span>Duration of Trip</span>
+          </mat-panel-title>
+          <mat-panel-description>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input matInput [matDatepicker]="start" (focus)="start.open()" readonly [min]="today" placeholder="Start Date" [formControl]="startDate">
+          <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #start startView="year"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="end" (focus)="end.open()" readonly [min]="startDate.value" placeholder="End Date" >
+          <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #end startView="year"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-action-row>
+          <button mat-raised-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-raised-button color="primary" (click)="nextStep()">End</button>
+        </mat-action-row>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </mat-card-content>
+
+</mat-card>
