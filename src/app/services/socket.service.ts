@@ -22,16 +22,16 @@ export class SocketService {
   }
 
   getMessages() {
-    return Observable.create((observer) => {
-      this.socket.on('new message', (data) => {
+    return new Observable((observer) => {
+      this.socket.on('new message', data => {
         observer.next(data);
       });
     });
   }
 
   newUser() {
-    return Observable.create((observer) => {
-      this.socket.on('new user', (data) => {
+    return new Observable((observer) => {
+      this.socket.on('new user', data => {
         this.messages = data.messages;
         observer.next(data);
       });

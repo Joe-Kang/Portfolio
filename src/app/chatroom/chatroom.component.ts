@@ -26,13 +26,13 @@ export class ChatroomComponent implements OnInit, OnDestroy, AfterViewChecked, A
 
     this.getUsersSub = this.socketService
     .newUser()
-    .subscribe((data) => {
+    .subscribe((data: {log: string}) => {
       this.messages = this.socketService.messages;
       this.messages.push(data.log);
     });
     this.getMessageSub = this.socketService
       .getMessages()
-      .subscribe((data) => {
+      .subscribe((data: string) => {
         this.messages.push(data);
       });
   }
