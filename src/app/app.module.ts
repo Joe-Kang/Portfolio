@@ -43,6 +43,7 @@ import { PlaygroundComponent } from './playground/playground.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -58,6 +59,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     PlaygroundComponent,
     PanelComponent,
     SignupComponent,
+    ChatroomComponent,
   ],
   entryComponents: [
     DialogOverview

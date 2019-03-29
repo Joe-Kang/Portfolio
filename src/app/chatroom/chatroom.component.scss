@@ -1,0 +1,27 @@
+[hidden] {
+  display: none !important;
+}
+
+.login {
+  margin: 0 auto;
+  width: 255px;
+  box-shadow: 7px 7px 7px 7px #ccc;
+}
+
+.chatroom {
+  margin: 0 auto auto auto;
+  width: 90%;
+  min-height: 300px;
+  box-shadow: 3px 3px 3px 3px #ccc;
+
+}
+
+.message-log {
+  height: 300px;
+  box-shadow: 7px 7px 7px 7px #ccc;
+  overflow: auto;
+}
+
+.message-input {
+  width: 89%;
+}

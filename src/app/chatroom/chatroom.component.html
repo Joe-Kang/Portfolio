@@ -1,0 +1,33 @@
+<mat-card class="chatroom" [hidden]="!logStatus">
+
+  <mat-card-header>
+    <mat-card-title>The Chat Room</mat-card-title>
+    <mat-card-subtitle>Using Socket.io</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="message-log" #log>
+    <mat-list>
+      <mat-list-item *ngFor="let msg of messages">{{msg}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <mat-form-field class="message-input">
+      <input matInput [(ngModel)]="message" placeholder="Type here" #msg (keyup.enter)="sendMessage(msg.value)">
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="sendMessage(msg.value)">Send</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card class="login" [hidden]="logStatus">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput [(ngModel)]="usernames" placeholder="Username" #username (keyup.enter)="setUsername(username.value)" id="username-input">
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="setUsername(username.value)" type="submit">Login</button>
+  </mat-card-content>
+</mat-card>

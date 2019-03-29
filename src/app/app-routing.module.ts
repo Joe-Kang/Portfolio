@@ -4,12 +4,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { CardsComponent } from './cards/cards.component';
 import { PlaygroundComponent } from './playground/playground.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 const routes: Routes = [
   {path: 'home', pathMatch: 'full', component: HomeComponent },
   { path: 'profile', pathMatch: 'full', component: ProfileComponent },
   { path: 'playground', pathMatch: 'full', component: PlaygroundComponent },
   { path: 'cards', pathMatch: 'full', component: CardsComponent },
+  { path: 'chatroom', pathMatch: 'full', component: ChatroomComponent },
   { path: '**', pathMatch: 'full', component: HomeComponent }
 ];
 
