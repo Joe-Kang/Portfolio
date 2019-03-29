@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, OnDestroy, AfterContentChecked } from '@angular/core';
 import { SocketService } from '../services/socket.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { SocketService } from '../services/socket.service';
   templateUrl: './chatroom.component.html',
   styleUrls: ['./chatroom.component.scss']
 })
-export class ChatroomComponent implements OnInit, AfterViewChecked, OnDestroy {
+export class ChatroomComponent implements OnInit, OnDestroy, AfterViewChecked, AfterContentChecked {
 
   @ViewChild('log') messageLog: ElementRef;
   @ViewChild('username') usernameInput: ElementRef;
@@ -39,11 +39,14 @@ export class ChatroomComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   ngAfterViewChecked(): void {
     this.messageLog.nativeElement.scrollTop = this.messageLog.nativeElement.scrollHeight;
-    // if (!this.logStatus) {
-    //   this.usernameInput.nativeElement.focus();
-    // } else {
-    //   this.messageInput.nativeElement.focus();
-    // }
+  }
+
+  ngAfterContentChecked(): void {
+    if (!this.logStatus) {
+      this.usernameInput.nativeElement.focus();
+    } else {
+      this.messageInput.nativeElement.focus();
+    }
   }
 
   setUsername(username: string) {
