@@ -28,22 +28,21 @@ import {
   MatAutocompleteModule,
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './views/profile/profile.component';
+import { HomeComponent } from './views/home/home.component';
 import { TableComponent } from './components/table/table.component';
 import { PopupComponent, DialogOverview } from './components/popup/popup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CardsComponent } from './cards/cards.component';
-import { PlaygroundComponent } from './playground/playground.component';
+import { CardsComponent } from './views/cards/cards.component';
+import { PlaygroundComponent } from './views/playground/playground.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { ChatroomComponent } from './chatroom/chatroom.component';
+import { ChatroomComponent } from './views/chatroom/chatroom.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 

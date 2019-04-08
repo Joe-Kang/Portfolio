@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
-import { CardsComponent } from './cards/cards.component';
-import { PlaygroundComponent } from './playground/playground.component';
-import { ChatroomComponent } from './chatroom/chatroom.component';
+import { ProfileComponent } from './views/profile/profile.component';
+import { HomeComponent } from './views/home/home.component';
+import { CardsComponent } from './views/cards/cards.component';
+import { PlaygroundComponent } from './views/playground/playground.component';
+import { ChatroomComponent } from './views/chatroom/chatroom.component';
 
 const routes: Routes = [
   {path: 'home', pathMatch: 'full', component: HomeComponent },

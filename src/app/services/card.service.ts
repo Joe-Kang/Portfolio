@@ -10,7 +10,6 @@ export class CardService {
   card_Drawn: string;
 
   constructor(private http: HttpClient) {
-
   }
 
   newDeck() {

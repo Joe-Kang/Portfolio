@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, OnDestroy, AfterContentChecked } from '@angular/core';
-import { SocketService } from '../services/socket.service';
+import { SocketService } from '../../services/socket.service';
 
 @Component({
   selector: 'app-chatroom',

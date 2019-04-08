@@ -11,7 +11,6 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 })
 export class AppComponent {
   isDarkTheme: Observable<boolean>;
-  status: boolean;
   overlay: HTMLElement;
 
   constructor(
@@ -19,12 +18,13 @@ export class AppComponent {
     private themeService: ThemeService,
     private overlayContainer: OverlayContainer,
   ) {
-    this.overlay = overlayContainer.getContainerElement();
-    this.overlay.classList.add('custom-theme');
+    this.isDarkTheme = this.themeService.isDarkTheme;
+    this.overlay = this.overlayContainer.getContainerElement();
+
    }
 
   OnInit() {
-    this.isDarkTheme = this.themeService.isDarkTheme;
+    this.overlay.classList.add('custom-theme');
   }
 
   toggleDarkTheme(checked: boolean) {
@@ -35,9 +35,9 @@ export class AppComponent {
     } else if (this.overlay.classList.contains('custom-theme')) {
       this.overlay.classList.remove('custom-theme');
       this.overlay.classList.add('dark-theme');
-  } else {
+    } else {
       this.overlay.classList.add('custom-theme');
-  }
+    }
   }
 
   home() {
